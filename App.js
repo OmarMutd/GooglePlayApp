@@ -1,7 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const PORT = 8002;
 
 const app = express();
 const playstore = require("./playstore-data.js");
@@ -21,7 +20,6 @@ app.get('/apps', (req, res) => {
         }
     }
 
-// if (genres) { if (!['Action', 'Puzzle', 'Strategy', 'Casual', 'Arcade', 'Card'].includes(genres)) { return res .status(400) .send('Genres must be Action, Puzzle, Strategy, Casual, Arcade, or Card.'); } }
 
     let results =  [...playstore]
         
@@ -43,6 +41,4 @@ app.get('/apps', (req, res) => {
     
 
 
-app.listen(PORT, () => {
-  console.log('Server started on PORT 8002');
-});
+module.exports = app;
